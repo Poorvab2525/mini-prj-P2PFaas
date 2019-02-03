@@ -8,12 +8,17 @@ services:
     environment:
       P2P_FOG_DEV_ENV: production
     ports:
-      - 8090:8090
+      - 18080:18080
     networks:
       - func_functions
     secrets:
       - basic-auth-user
       - basic-auth-password
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+          - "node.platform.os == linux"
 
   discovery:
     image: discovery
@@ -23,12 +28,17 @@ services:
     environment:
       P2P_FOG_DEV_ENV: production
     ports:
-      - 9000:9000
+      - 19000:19000
     networks:
       - func_functions
     secrets:
       - basic-auth-user
       - basic-auth-password
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+          - "node.platform.os == linux"
 
   mongo:
     image: mongo:latest
@@ -40,6 +50,11 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     networks:
       - func_functions
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+          - "node.platform.os == linux"
 
   mongo-express:
     image: mongo-express:latest
@@ -51,6 +66,35 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
     networks:
       - func_functions
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+          - "node.platform.os == linux"
+
+  prometheus:
+    image: prom/prometheus:v2.6.1
+    configs:
+      - source: prometheus_config
+        target: /etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--web.listen-address=:19090"
+    #   - '-storage.local.path=/prometheus'
+    ports:
+      - 19090:19090
+    networks:
+      - func_functions
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+          - "node.platform.os == linux"
+      resources:
+        limits:
+          memory: 500M
+        reservations:
+          memory: 200M
 
 networks:
   func_functions:
@@ -61,3 +105,7 @@ secrets:
     external: true
   basic-auth-password:
     external: true
+
+configs:
+  prometheus_config:
+    file: ./prometheus/prometheus.yml
