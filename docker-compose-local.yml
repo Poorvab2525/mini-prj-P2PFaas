@@ -104,7 +104,6 @@ secrets:
     external: true
   basic-auth-password:
     external: true
-
-configs:
-  prometheus_config:
-    file: ./prometheus/prometheus.yml
+# configs:
+#   prometheus_config:
+#     file: ./prometheus/prometheus.yml
