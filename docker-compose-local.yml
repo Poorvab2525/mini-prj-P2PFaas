@@ -56,45 +56,44 @@ services:
           - "node.role == manager"
           - "node.platform.os == linux"
 
-  mongo-express:
-    image: mongo-express:latest
-    restart: always
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-    networks:
-      - func_functions
-    deploy:
-      placement:
-        constraints:
-          - "node.role == manager"
-          - "node.platform.os == linux"
-
-  prometheus:
-    image: prom/prometheus:v2.6.1
-    configs:
-      - source: prometheus_config
-        target: /etc/prometheus/prometheus.yml
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"
-      - "--web.listen-address=:19090"
-    #   - '-storage.local.path=/prometheus'
-    ports:
-      - 19090:19090
-    networks:
-      - func_functions
-    deploy:
-      placement:
-        constraints:
-          - "node.role == manager"
-          - "node.platform.os == linux"
-      resources:
-        limits:
-          memory: 500M
-        reservations:
-          memory: 200M
+  # mongo-express:
+  #   image: mongo-express:latest
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  #   networks:
+  #     - func_functions
+  #   deploy:
+  #     placement:
+  #       constraints:
+  #         - "node.role == manager"
+  #         - "node.platform.os == linux"
+  # prometheus:
+  #   image: prom/prometheus:v2.6.1
+  #   configs:
+  #     - source: prometheus_config
+  #       target: /etc/prometheus/prometheus.yml
+  #   command:
+  #     - "--config.file=/etc/prometheus/prometheus.yml"
+  #     - "--web.listen-address=:19090"
+  #   #   - '-storage.local.path=/prometheus'
+  #   ports:
+  #     - 19090:19090
+  #   networks:
+  #     - func_functions
+  #   deploy:
+  #     placement:
+  #       constraints:
+  #         - "node.role == manager"
+  #         - "node.platform.os == linux"
+  #     resources:
+  #       limits:
+  #         memory: 500M
+  #       reservations:
+  #         memory: 200M
 
 networks:
   func_functions:
