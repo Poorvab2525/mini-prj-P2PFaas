@@ -2,7 +2,6 @@ version: "3.3"
 services:
   scheduler:
     image: scheduler
-    restart: always
     volumes:
       - "/var/lib/boot2docker:/var/lib/boot2docker"
     environment:
@@ -15,6 +14,9 @@ services:
       - basic-auth-user
       - basic-auth-password
     deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
       placement:
         constraints:
           - "node.role == manager"
@@ -22,7 +24,6 @@ services:
 
   discovery:
     image: discovery
-    restart: always
     volumes:
       - "/var/lib/boot2docker:/var/lib/boot2docker"
     environment:
@@ -35,6 +36,9 @@ services:
       - basic-auth-user
       - basic-auth-password
     deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
       placement:
         constraints:
           - "node.role == manager"
