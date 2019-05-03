@@ -5,8 +5,8 @@ services:
     volumes:
       - "~/.config/p2pfog:/var/lib/boot2docker"
     environment:
-      env: production
-      P2P_FOG_DEV_ENV: production
+      P2P_FOG_LOG_ENV: production
+      P2P_FOG_DEV_ENV: development
     ports:
       - 18080:18080
     networks:
@@ -28,8 +28,8 @@ services:
     volumes:
       - "~/.config/p2pfog:/var/lib/boot2docker"
     environment:
-      env: production
-      P2P_FOG_DEV_ENV: production
+      P2P_FOG_LOG_ENV: production
+      P2P_FOG_DEV_ENV: development
     ports:
       - 19000:19000
     networks:
