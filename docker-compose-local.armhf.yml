@@ -52,6 +52,7 @@ services:
     #volumes:
     #  - /home/docker/mongo:/data/db
     environment:
+      MONGODB_AUTH: "true"
       MONGODB_ROOT_USERNAME: root
       MONGODB_ROOT_PASSWORD: example
     networks:
