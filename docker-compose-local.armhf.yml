@@ -46,22 +46,22 @@ services:
           - "node.role == manager"
           - "node.platform.os == linux"
 
-  mongo:
-    image: webhippie/mongodb:latest-arm32v7
-    restart: always
-    #volumes:
-    #  - /home/docker/mongo:/data/db
-    environment:
-      MONGODB_AUTH: "true"
-      MONGODB_ROOT_USERNAME: root
-      MONGODB_ROOT_PASSWORD: example
-    networks:
-      - func_functions
-    deploy:
-      placement:
-        constraints:
-          - "node.role == manager"
-          - "node.platform.os == linux"
+  # mongo:
+  #   image: webhippie/mongodb:latest-arm32v7
+  #   restart: always
+  #   #volumes:
+  #   #  - /home/docker/mongo:/data/db
+  #   environment:
+  #     MONGODB_AUTH: "true"
+  #     MONGODB_ROOT_USERNAME: root
+  #     MONGODB_ROOT_PASSWORD: example
+  #   networks:
+  #     - func_functions
+  #   deploy:
+  #     placement:
+  #       constraints:
+  #         - "node.role == manager"
+  #         - "node.platform.os == linux"
 
   # mongo-express:
   #   image: mongo-express:latest
