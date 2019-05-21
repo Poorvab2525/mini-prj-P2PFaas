@@ -46,21 +46,21 @@ services:
           - "node.role == manager"
           - "node.platform.os == linux"
 
-  # mongo:
-  #   image: mongo:latest
-  #   restart: always
-  #   #volumes:
-  #   #  - /home/docker/mongo:/data/db
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: root
-  #     MONGO_INITDB_ROOT_PASSWORD: example
-  #   networks:
-  #     - func_functions
-  #   deploy:
-  #     placement:
-  #       constraints:
-  #         - "node.role == manager"
-  #         - "node.platform.os == linux"
+  mongo:
+    image: mongo:latest
+    restart: always
+    #volumes:
+    #  - /home/docker/mongo:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - func_functions
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+          - "node.platform.os == linux"
 
   # mongo-express:
   #   image: mongo-express:latest
