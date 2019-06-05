@@ -7,6 +7,7 @@ services:
     environment:
       P2P_FOG_LOG_ENV: production
       P2P_FOG_DEV_ENV: development
+      P2P_FOG_PROF: "true"
     ports:
       - 18080:18080
     networks:
