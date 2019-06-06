@@ -10,6 +10,7 @@ services:
       P2P_FOG_PROF: "true"
     ports:
       - 18080:18080
+      - 16060:16060 
     networks:
       - func_functions
     secrets:
