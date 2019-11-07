@@ -22,7 +22,7 @@ services:
         constraints:
           - "node.role == manager"
           - "node.platform.os == linux"
-          
+
   discovery:
     image: registry.gitlab.com/p2p-fog/stack-discovery:latest
     volumes:
