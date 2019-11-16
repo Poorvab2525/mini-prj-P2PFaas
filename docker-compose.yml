@@ -3,7 +3,7 @@ services:
   scheduler:
     image: registry.gitlab.com/p2p-fog/stack-scheduler:latest
     volumes:
-      - "~/.config/p2pfog:/var/lib/boot2docker"
+      - "~/.config/p2pfog:/config"
     environment:
       P2P_FOG_LOG_ENV: production
       P2P_FOG_DEV_ENV: development
@@ -26,7 +26,7 @@ services:
   discovery:
     image: registry.gitlab.com/p2p-fog/stack-discovery:latest
     volumes:
-      - "~/.config/p2pfog:/var/lib/boot2docker"
+      - "~/.config/p2pfog:/config"
     environment:
       P2P_FOG_LOG_ENV: production
       P2P_FOG_DEV_ENV: development
