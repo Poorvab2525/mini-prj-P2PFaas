@@ -3,7 +3,7 @@ services:
   scheduler:
     image: scheduler
     volumes:
-      - "~/.config/p2pfog:/var/lib/boot2docker"
+      - "~/.config/p2pfaas:/config"
     environment:
       P2P_FOG_LOG_ENV: production
       P2P_FOG_DEV_ENV: development
@@ -26,7 +26,7 @@ services:
   discovery:
     image: discovery
     volumes:
-      - "~/.config/p2pfog:/var/lib/boot2docker"
+      - "~/.config/p2pfaas:/config"
     environment:
       P2P_FOG_LOG_ENV: production
       P2P_FOG_DEV_ENV: development

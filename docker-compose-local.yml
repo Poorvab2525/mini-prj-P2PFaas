@@ -3,14 +3,14 @@ services:
   scheduler:
     image: scheduler
     volumes:
-      - "~/.config/p2pfog:/var/lib/boot2docker"
+      - "~/.config/p2pfaas:/config"
     environment:
       P2P_FOG_LOG_ENV: production
       P2P_FOG_DEV_ENV: development
       P2P_FOG_PROF: "true"
     ports:
       - 18080:18080
-      - 16060:16060 
+      - 16060:16060
     networks:
       - func_functions
     secrets:
@@ -28,7 +28,7 @@ services:
   discovery:
     image: discovery
     volumes:
-      - "~/.config/p2pfog:/var/lib/boot2docker"
+      - "~/.config/p2pfaas:/config"
     environment:
       P2P_FOG_LOG_ENV: production
       P2P_FOG_DEV_ENV: development
