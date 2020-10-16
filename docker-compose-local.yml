@@ -3,11 +3,12 @@ services:
   scheduler:
     image: scheduler
     volumes:
+      - "~/.config/p2pfaas/scheduler:/data"
       - "~/.config/p2pfaas:/config"
     environment:
-      P2P_FOG_LOG_ENV: production
-      P2P_FOG_DEV_ENV: development
-      P2P_FOG_PROF: "true"
+      P2PFAAS_LOG_ENV: production
+      P2PFAAS_DEV_ENV: development
+      P2PFAAS_PROF: "false"
     ports:
       - 18080:18080
       - 16060:16060
@@ -28,10 +29,10 @@ services:
   discovery:
     image: discovery
     volumes:
-      - "~/.config/p2pfaas:/config"
+      - "~/.config/p2pfaas/discovery:/data"
     environment:
-      P2P_FOG_LOG_ENV: production
-      P2P_FOG_DEV_ENV: development
+      P2PFAAS_LOG_ENV: production
+      P2PFAAS_DEV_ENV: development
     ports:
       - 19000:19000
     networks:
@@ -43,22 +44,6 @@ services:
       restart_policy:
         condition: any
         delay: 5s
-      placement:
-        constraints:
-          - "node.role == manager"
-          - "node.platform.os == linux"
-
-  mongo:
-    image: mongo:latest
-    restart: always
-    #volumes:
-    #  - /home/docker/mongo:/data/db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-    networks:
-      - func_functions
-    deploy:
       placement:
         constraints:
           - "node.role == manager"
