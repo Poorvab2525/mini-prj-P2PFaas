@@ -29,7 +29,7 @@ services:
     volumes:
       - "~/.config/p2pfaas/discovery:/data"
     environment:
-      P2PFAAS_LOG_ENV: development
+      P2PFAAS_LOG_ENV: production
       P2PFAAS_DEV_ENV: development
     ports:
       - 19000:19000
