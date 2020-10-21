@@ -4,7 +4,6 @@ services:
     image: scheduler
     volumes:
       - "~/.config/p2pfaas/scheduler:/data"
-      - "~/.config/p2pfaas:/config"
     environment:
       P2PFAAS_LOG_ENV: production
       P2PFAAS_DEV_ENV: development
