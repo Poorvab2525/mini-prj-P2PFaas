@@ -5,8 +5,8 @@ services:
     volumes:
       - "~/.config/p2pfaas/scheduler:/data"
     environment:
-      P2P_FOG_LOG_ENV: production
-      P2P_FOG_DEV_ENV: development
+      P2PFAAS_LOG_ENV: production
+      P2PFAAS_DEV_ENV: production
     ports:
       - 18080:18080
     networks:
@@ -28,8 +28,8 @@ services:
     volumes:
       - "~/.config/p2pfaas/discovery:/data"
     environment:
-      P2P_FOG_LOG_ENV: production
-      P2P_FOG_DEV_ENV: development
+      P2PFAAS_LOG_ENV: production
+      P2PFAAS_DEV_ENV: production
     ports:
       - 19000:19000
     networks:
