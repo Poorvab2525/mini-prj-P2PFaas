@@ -6,7 +6,7 @@ _`stack` repository_
 
 The P2PFaaS is a framework that allows you to implement a load balancing/scheduling algorithm.
 
-For a detailed information about the framework you can read my MSc thesis at [raw.gpm.name/thesis/master-thesis.pdf](raw.gpm.name/thesis/master-thesis.pdf). If you are using P2PFaaS in your work please cite [https://ieeexplore.ieee.org/document/8964273/](https://ieeexplore.ieee.org/document/8964273/):
+For a detailed information about the framework you can read my MSc thesis at [raw.gpm.name/theses/master-thesis.pdf](https://raw.gpm.name/theses/master-thesis.pdf). If you are using P2PFaaS in your work please cite [https://ieeexplore.ieee.org/document/8964273/](https://ieeexplore.ieee.org/document/8964273/):
 
 ```bibtex
 @article{8964273,
