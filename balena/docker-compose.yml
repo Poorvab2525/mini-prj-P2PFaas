@@ -8,8 +8,6 @@ services:
       P2PFAAS_DEV_ENV: production
     ports:
       - 18080:18080
-    networks:
-      - p2pfaas_net
 
   discovery:
     build: ./stack-discovery
@@ -18,9 +16,8 @@ services:
       P2PFAAS_DEV_ENV: production
     ports:
       - 19000:19000
-    networks:
-      - p2pfaas_net
 
-networks:
-  p2pfaas_net:
-    driver: "overlay"
+  fn-pigo:
+    build: ./fn-pigo
+    ports:
+      - 28080:80

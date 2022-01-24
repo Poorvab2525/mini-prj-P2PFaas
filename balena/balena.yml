@@ -1,0 +1,6 @@
+build-variables:
+  global:
+    - TARGETPLATFORM=linux/arm64/v8
+    - BUILDPLATFORM=linux/arm64/v8
+    - TARGETARCH=arm64
+    - TARGETOS=linux
