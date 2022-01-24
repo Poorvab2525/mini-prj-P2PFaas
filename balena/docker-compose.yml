@@ -1,57 +1,26 @@
-version: "3.3"
+version: "2.1"
+
 services:
   scheduler:
-    image: ./stack-scheduler
-    # volumes:
-    #   - "~/.config/p2pfaas/scheduler:/data"
+    build: ./stack-scheduler
     environment:
       P2PFAAS_LOG_ENV: production
       P2PFAAS_DEV_ENV: production
     ports:
       - 18080:18080
-    # networks:
-    #   - func_functions
-    # secrets:
-    #   - basic-auth-user
-    #   - basic-auth-password
-    deploy:
-      restart_policy:
-        condition: any
-        delay: 5s
-      # placement:
-      #   constraints:
-      #     - "node.role == manager"
-      #    - "node.platform.os == linux"
+    networks:
+      - p2pfaas_net
 
   discovery:
-    image: ./stack-discovery
-    # volumes:
-    #   - "~/.config/p2pfaas/discovery:/data"
+    build: ./stack-discovery
     environment:
       P2PFAAS_LOG_ENV: production
       P2PFAAS_DEV_ENV: production
     ports:
       - 19000:19000
     networks:
-      - func_functions
-    secrets:
-      - basic-auth-user
-      - basic-auth-password
-    deploy:
-      restart_policy:
-        condition: any
-        delay: 5s
-      # placement:
-      #   constraints:
-      #     - "node.role == manager"
-      #     - "node.platform.os == linux"
+      - p2pfaas_net
 
-      # networks:
-      #   func_functions:
-      #     external: true
-
-      # secrets:
-      #   basic-auth-user:
-      #     external: true
-      #   basic-auth-password:
-      #     external: true
+networks:
+  p2pfaas_net:
+    driver: "overlay"
