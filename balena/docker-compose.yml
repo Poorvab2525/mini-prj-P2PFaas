@@ -1,0 +1,57 @@
+version: "3.3"
+services:
+  scheduler:
+    image: ./stack-scheduler
+    # volumes:
+    #   - "~/.config/p2pfaas/scheduler:/data"
+    environment:
+      P2PFAAS_LOG_ENV: production
+      P2PFAAS_DEV_ENV: production
+    ports:
+      - 18080:18080
+    # networks:
+    #   - func_functions
+    # secrets:
+    #   - basic-auth-user
+    #   - basic-auth-password
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
+      # placement:
+      #   constraints:
+      #     - "node.role == manager"
+      #    - "node.platform.os == linux"
+
+  discovery:
+    image: ./stack-discovery
+    # volumes:
+    #   - "~/.config/p2pfaas/discovery:/data"
+    environment:
+      P2PFAAS_LOG_ENV: production
+      P2PFAAS_DEV_ENV: production
+    ports:
+      - 19000:19000
+    networks:
+      - func_functions
+    secrets:
+      - basic-auth-user
+      - basic-auth-password
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
+      # placement:
+      #   constraints:
+      #     - "node.role == manager"
+      #     - "node.platform.os == linux"
+
+      # networks:
+      #   func_functions:
+      #     external: true
+
+      # secrets:
+      #   basic-auth-user:
+      #     external: true
+      #   basic-auth-password:
+      #     external: true
