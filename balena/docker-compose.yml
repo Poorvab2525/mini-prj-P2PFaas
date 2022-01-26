@@ -6,6 +6,7 @@ services:
     environment:
       P2PFAAS_LOG_ENV: production
       P2PFAAS_DEV_ENV: production
+      P2PFAAS_FNS_LIST: fn-pigo
     ports:
       - 18080:18080
 
@@ -19,5 +20,5 @@ services:
 
   fn-pigo:
     build: ./fn-pigo
-    ports:
-      - 28080:80
+    # ports:
+    #   - 28080:8080

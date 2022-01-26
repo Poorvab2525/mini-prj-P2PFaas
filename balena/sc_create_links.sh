@@ -2,3 +2,5 @@
 # create hard links
 ln -sfv ../../stack-discovery stack-discovery
 ln -sfv ../../stack-scheduler stack-scheduler
+ln -sfv ../../experiments/functions/pigo-openfaas/build/pigo-face-detector fn-pigo
+
