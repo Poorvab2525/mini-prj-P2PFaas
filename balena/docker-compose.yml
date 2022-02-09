@@ -15,10 +15,14 @@ services:
     environment:
       P2PFAAS_LOG_ENV: production
       P2PFAAS_DEV_ENV: production
+      P2PFAAS_INIT_SERVERS: 192.168.50.100
     ports:
       - 19000:19000
 
   fn-pigo:
     build: ./fn-pigo
+    environment:
+     output_mode: "image"
+     input_mode: "image"
     # ports:
     #   - 28080:8080

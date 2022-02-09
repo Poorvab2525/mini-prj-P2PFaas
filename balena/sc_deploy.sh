@@ -5,4 +5,4 @@
 #     --buildArg TARGETARCH=arm64 \
 #     --buildArg TARGETOS=linux
 
-balena deploy admin/rpi4-c00 -m -h 192.168.50.101 -p 2375 --debug --build
+balena deploy admin/rpi4-c00 -m -h 192.168.50.100 -p 2375 --debug --build
