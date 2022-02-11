@@ -1,5 +1,8 @@
 version: "2.1"
 
+volumes:
+  resin-data:
+
 services:
   scheduler:
     build: ./stack-scheduler
@@ -9,6 +12,8 @@ services:
       P2PFAAS_FNS_LIST: fn-pigo
     ports:
       - 18080:18080
+    volumes:
+      - 'resin-data:/data'
 
   discovery:
     build: ./stack-discovery
@@ -18,6 +23,8 @@ services:
       P2PFAAS_INIT_SERVERS: 192.168.50.100
     ports:
       - 19000:19000
+    volumes:
+      - 'resin-data:/data'
 
   learner:
     build: ./stack-learner
@@ -26,11 +33,13 @@ services:
       P2PFAAS_DEV_ENV: production
     ports:
       - 19020:19020
+    volumes:
+      - 'resin-data:/data'
 
   fn-pigo:
     build: ./fn-pigo
     environment:
-     output_mode: "image"
-     input_mode: "image"
+      output_mode: "image"
+      input_mode: "image"
     # ports:
     #   - 28080:8080
