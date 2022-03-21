@@ -43,3 +43,8 @@ services:
       input_mode: "image"
     # ports:
     #   - 28080:8080
+
+  # fn-loop:
+  #   build: ./fn-loop
+  #   environment:
+  #     mi: 5.0
