@@ -7,8 +7,8 @@ services:
   scheduler:
     build: ./stack-scheduler
     environment:
-      P2PFAAS_LOG_ENV: development
-      P2PFAAS_DEV_ENV: development
+      P2PFAAS_LOG_ENV: production
+      P2PFAAS_DEV_ENV: production
     ports:
       - 18080:18080
     volumes:
