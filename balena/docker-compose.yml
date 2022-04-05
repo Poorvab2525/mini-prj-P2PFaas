@@ -7,13 +7,13 @@ services:
   scheduler:
     build: ./stack-scheduler
     environment:
-      P2PFAAS_LOG_ENV: production
-      P2PFAAS_DEV_ENV: production
-      P2PFAAS_FNS_LIST: fn-pigo
+      P2PFAAS_LOG_ENV: development
+      P2PFAAS_DEV_ENV: development
     ports:
       - 18080:18080
     volumes:
       - 'resin-data:/data'
+    restart: always
 
   discovery:
     build: ./stack-discovery
@@ -24,6 +24,7 @@ services:
       - 19000:19000
     volumes:
       - 'resin-data:/data'
+    restart: always
 
   learner:
     build: ./stack-learner
@@ -34,12 +35,14 @@ services:
       - 19020:19020
     volumes:
       - 'resin-data:/data'
+    restart: always
 
   fn-pigo:
     build: ./fn-pigo
     environment:
       output_mode: "image"
       input_mode: "image"
+    restart: always
     # ports:
     #   - 28080:8080
 
