@@ -22,4 +22,4 @@ For a detailed information about the framework you can read my MSc thesis at [ra
 
 # Repository
 
-This repository contains the `docker-compose.yml` file that is necessary to start the framework. For local deployments use `docker-compose.yml` for using local Docker images.
+This repository contains the `docker-compose.yml` file that is necessary to start the framework. Use the `balena` folder to deploy the framework locally or with the openBalena framework.
