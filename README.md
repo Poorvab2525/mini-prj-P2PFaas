@@ -6,6 +6,18 @@ _`stack` repository_
 
 The P2PFaaS is a framework that allows you to implement a load balancing/scheduling algorithm.
 
+# Booting
+
+For starting the bare framework you can use the command
+
+`docker-compose up`
+
+But for running a test you need a function, in benchmarks the pigo-openfaas function is used. You can clone in this folder and then use the command
+
+`docker-compose up -f docker-compose-fn.yml`
+
+# Information
+
 For a detailed information about the framework you can read my MSc thesis at [raw.gpm.name/theses/master-thesis.pdf](https://raw.gpm.name/theses/master-thesis.pdf). If you are using P2PFaaS in your work please cite [https://ieeexplore.ieee.org/document/8964273/](https://ieeexplore.ieee.org/document/8964273/):
 
 ```bibtex
@@ -17,7 +29,8 @@ For a detailed information about the framework you can read my MSc thesis at [ra
     volume={},
     number={},
     pages={1-1},
-    doi={10.1109/TCC.2020.2968443}}
+    doi={10.1109/TCC.2020.2968443}
+}
 ```
 
 # Repository
