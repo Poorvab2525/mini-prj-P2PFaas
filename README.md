@@ -16,7 +16,9 @@ The P2PFaaS is a framework that allows you to implement fully distributed and de
 
 For starting the bare framework, you can use the command
 
-`docker-compose up`
+```
+docker-compose up
+```
 
 ## With FaaS function
 
@@ -24,17 +26,23 @@ But for running a benchmark you need to install a FaaS function. In [[1]](https:
 
 1. Build it with `faas-cli` [[4]](https://github.com/openfaas/faas-cli), this will create the Dockerfile needed for starting the Compose
 
-    `faas-cli build`
+    ```
+    faas-cli build
+    ```
 
 2. Start the framwork
 
-    `docker-compose up -f docker-compose-fn.yml`
+    ```
+    docker-compose up -f docker-compose-fn.yml
+    ```
 
-## In SBC (Single Board Computers e.g. Raspberry Pi)
+## In SBCs (Single Board Computers e.g. Raspberry Pi)
 
 For booting the framework in a set of SBCs nodes, starting from this repository and after cloning and building the functions like described above, you can use the OpenBalena [[5]](https://www.balena.io/open/) framework. Once all is set up, use the command to deploy the framework by building it within a node
 
-`balena deploy admin/myfleet -m -h <node-ip> -p 2375 --debug --build`
+```
+balena deploy admin/myfleet -m -h <node-ip> -p 2375 --debug --build
+```
 
 # Cite the work
  If you are using P2PFaaS in your work please cite [[1]](https://dx.doi.org/10.1109/PerComWorkshops53856.2022.9767498) or [[2]](https://dx.doi.org/10.1109/TCC.2020.2968443)
