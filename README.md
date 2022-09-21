@@ -1,6 +1,12 @@
+<div align="center">
+
 # P2PFaaS
 
-_`stack` repository_
+A Framework for FaaS load balancing  | _`stack` repository_
+
+![License](https://img.shields.io/badge/license-GPLv3-green?style=flat)
+
+</div>
 
 # Introduction
 
@@ -8,17 +14,24 @@ The P2PFaaS is a framework that allows you to implement a load balancing/schedul
 
 # Booting
 
-For starting the bare framework you can use the command
+For starting the bare framework, you can use the command
 
 `docker-compose up`
 
-But for running a test you need a function, in benchmarks the pigo-openfaas function is used. You can clone in this folder and then use the command
+## With FaaS function
 
-`docker-compose up -f docker-compose-fn.yml`
+But for running a benchmark you need to install a FaaS function. In [[1]](https://dx.doi.org/10.1109/PerComWorkshops53856.2022.9767498) and [[2]](https://dx.doi.org/10.1109/TCC.2020.2968443) the `pigo-openfaas` [[3]](https://github.com/esimov/pigo-openfaas) function is used. You can clone it in this folder and then:
 
-# Information
+1. Build it with `faas-cli` [[4]](https://github.com/openfaas/faas-cli), this will create the Dockerfile needed for starting the Compose
 
-For a detailed information about the framework you can read my MSc thesis at [raw.gpm.name/theses/master-thesis.pdf](https://raw.gpm.name/theses/master-thesis.pdf). If you are using P2PFaaS in your work please cite [https://ieeexplore.ieee.org/document/8964273/](https://ieeexplore.ieee.org/document/8964273/):
+    `faas-cli build`
+
+2. Start the framwork
+
+    `docker-compose up -f docker-compose-fn.yml`
+
+# Cite the work
+ If you are using P2PFaaS in your work please cite [[1]](https://dx.doi.org/10.1109/PerComWorkshops53856.2022.9767498) or [[2]](https://dx.doi.org/10.1109/TCC.2020.2968443)
 
 ```bibtex
 @article{8964273,
@@ -32,7 +45,22 @@ For a detailed information about the framework you can read my MSc thesis at [ra
     doi={10.1109/TCC.2020.2968443}
 }
 ```
+```bibtex
+@inproceedings{2022ProiettiMattiaOnRealtime,
+  author = {{Proietti Mattia}, Gabriele and Beraldi, Roberto},
+  booktitle = {2022 IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops)},
+  title = {On real-time scheduling in Fog computing: A Reinforcement Learning algorithm with application to smart cities},
+  year = {2022},
+  volume = {},
+  number = {},
+  pages = {187-193},
+  doi = {10.1109/PerComWorkshops53856.2022.9767498}
+}
+```
 
-# Repository
+# References
 
-This repository contains the `docker-compose.yml` file that is necessary to start the framework. Use the `balena` folder to deploy the framework locally or with the openBalena framework.
+1. https://dx.doi.org/10.1109/PerComWorkshops53856.2022.9767498
+2. https://dx.doi.org/10.1109/TCC.2020.2968443
+3. https://github.com/esimov/pigo-openfaas
+4. https://github.com/openfaas/faas-cli
